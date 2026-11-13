@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="nb">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#f6f8fa" />
+  <meta name="description" content="Hold kontroll på ukeforbruket og sparingen din, helt gratis." />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="apple-mobile-web-app-title" content="Spareblikk" />
+  <link rel="manifest" href="./manifest.webmanifest" />
+  <link rel="icon" type="image/svg+xml" href="./icon.svg" />
+  <link rel="apple-touch-icon" href="./icon-180.png" />
+  <title>Spareblikk – Min pengeoversikt</title>
+  <style>
+    :root { --bg:#f6f8fa; --surface:#fff; --ink:#15283c; --muted:#6b7c8e; --line:#e5ebef; --accent:#087d65; --accent-soft:#e4f5ef; --bad:#c74a48; --bad-soft:#fff0ee; --shadow:0 10px 30px rgba(18,40,61,.06); }
+    *{box-sizing:border-box}html{font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink);background:var(--bg);-webkit-text-size-adjust:100%}body{margin:0;min-height:100dvh}button,input,select{font:inherit}button{cursor:pointer}button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #74c2a9;outline-offset:2px}button:disabled{opacity:.45;cursor:not-allowed}.shell{max-width:690px;margin:0 auto;padding:28px 18px 110px}.topbar{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:24px}.brand{display:flex;align-items:center;gap:10px;font-weight:850;font-size:1.14rem;letter-spacing:-.035em}.brand-icon{display:grid;place-items:center;width:38px;height:38px;border-radius:13px;color:white;background:linear-gradient(140deg,#0a9a79,#006b67);font-size:23px}.eyebrow{font-weight:750;text-transform:uppercase;letter-spacing:.10em;font-size:.72rem;color:var(--accent);margin-bottom:8px}.topnote{color:var(--muted);font-size:.81rem;text-align:right}.heading{margin:0;font-size:clamp(1.58rem,5vw,2.05rem);letter-spacing:-.06em;line-height:1.15}.subheading{color:var(--muted);font-size:.92rem;line-height:1.5;margin:9px 0 21px}.card{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:20px;box-shadow:var(--shadow)}.hero{background:linear-gradient(120deg,#0b826e 0%,#09615d 100%);border:0;color:white;padding:23px;margin:16px 0 14px}.hero .eyebrow{color:#bff5dd}.hero .big-number{font-size:clamp(2.7rem,9vw,4.4rem);font-weight:850;line-height:1;letter-spacing:-.085em;margin:7px 0 14px}.hero .big-number .unit{font-size:.47em;letter-spacing:-.04em;opacity:.9}.hero .subtext{opacity:.9;font-size:.86rem}.progress{height:9px;border-radius:99px;background:rgba(255,255,255,.22);overflow:hidden;margin:16px 0 8px}.progress span{display:block;height:100%;background:#d4fcd3;border-radius:99px;transition:width .25s ease}.progress.over span{background:#ffd4ac}.hero-footer{display:flex;justify-content:space-between;gap:8px;font-size:.77rem;opacity:.93}.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px;margin:13px 0}.metric{min-height:116px}.metric .caption{font-size:.8rem;color:var(--muted);line-height:1.4}.metric .value{font-size:1.63rem;letter-spacing:-.065em;font-weight:850;margin:14px 0 3px}.metric .hint{font-size:.73rem;color:var(--muted)}.green{color:var(--accent)}.red{color:var(--bad)}.section-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:26px 1px 13px}.section-head h2{font-size:1.1rem;letter-spacing:-.035em;margin:0}.subtle{font-size:.78rem;color:var(--muted)}.week-nav{display:flex;align-items:center;gap:8px}.circle{width:35px;height:35px;display:grid;place-items:center;border:1px solid var(--line);border-radius:11px;background:white;color:var(--ink);font-size:1.15rem}.week-label{font-size:.84rem;font-weight:700;min-width:90px;text-align:center}.daychart{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));align-items:end;gap:9px;min-height:146px;margin-top:17px}.day{display:flex;align-items:center;flex-direction:column;gap:6px;min-width:0}.day .day-val{font-size:.65rem;color:var(--muted);height:15px;white-space:nowrap}.bar-space{height:94px;display:flex;align-items:end;width:100%}.day .bar{width:100%;height:4px;min-height:4px;border-radius:6px 6px 3px 3px;background:#b5d9cd;transition:height .3s}.day.today .bar{background:var(--accent)}.day .day-name{font-size:.72rem;font-weight:700;color:var(--muted)}.day.today .day-name{color:var(--accent)}.category-row{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 0;border-bottom:1px solid var(--line)}.category-row:last-child{border:0;padding-bottom:0}.cat-left{display:flex;align-items:center;gap:10px}.emoji{width:34px;height:34px;background:#eef3f4;border-radius:10px;display:grid;place-items:center;font-size:1.05rem}.cat-name{font-size:.87rem;font-weight:680}.cat-note{font-size:.75rem;color:var(--muted);margin-top:4px}.cat-amount{font-weight:780;white-space:nowrap;font-size:.88rem}.empty{color:var(--muted);padding:16px 5px;font-size:.88rem;line-height:1.5}.btn{border:0;background:var(--accent);border-radius:12px;min-height:43px;padding:11px 16px;color:#fff;font-weight:750;font-size:.9rem;display:inline-flex;align-items:center;justify-content:center;gap:7px}.btn.secondary{color:var(--ink);background:#edf2f4}.btn.outline{color:var(--accent);background:white;border:1px solid #b6d9cd}.btn.danger{background:var(--bad-soft);color:var(--bad)}.btn.full{width:100%}.btn.small{font-size:.78rem;min-height:37px;padding:8px 12px}.formbox{margin:15px 0 4px}.fields{display:grid;grid-template-columns:1fr 1fr;gap:12px}.field{display:flex;flex-direction:column;gap:7px;margin-bottom:14px}.field.full{grid-column:1/-1}.field label{font-size:.78rem;font-weight:750}.field input,.field select{border-radius:11px;border:1px solid #d7e2e7;background:#fff;color:var(--ink);padding:12px;min-height:45px;width:100%;font-size:1rem}.field .small-help{color:var(--muted);font-size:.72rem;line-height:1.4}.form-actions{display:flex;justify-content:flex-end;gap:9px;flex-wrap:wrap}.tx{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:12px 0;border-bottom:1px solid var(--line)}.tx:last-child{border:0;padding-bottom:0}.tx .left{display:flex;align-items:center;gap:10px;min-width:0}.tx .txt{min-width:0}.tx strong{display:block;font-size:.87rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.tx .meta{color:var(--muted);font-size:.74rem;margin-top:5px}.tx .right{display:flex;align-items:center;gap:7px;flex-shrink:0}.tx .amount{font-weight:800;white-space:nowrap;font-size:.88rem}.mini{border:0;background:#f1f4f6;border-radius:8px;min-height:31px;min-width:31px;display:grid;place-items:center;color:#596b78;font-size:.85rem}.small-note{margin:11px 0 0;color:var(--muted);font-size:.77rem;line-height:1.5}.notice{padding:13px 15px;border-radius:13px;font-size:.82rem;line-height:1.48;margin:12px 0;background:var(--accent-soft);color:#176b58}.notice.warning{background:var(--bad-soft);color:#ae3f3c}.stack{display:grid;gap:12px}.goal-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0}.goal{padding:17px;border-radius:17px;background:#f1f7f4}.goal .num{font-size:1.7rem;letter-spacing:-.055em;font-weight:850}.goal .cap{font-size:.77rem;color:#456a60;margin-top:6px}.savings-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px}.savings-actions button{height:100%;min-height:65px;line-height:1.3}.bar-history{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));align-items:end;gap:8px;margin-top:16px}.history-col{text-align:center;min-width:0}.history-val{font-size:.66rem;color:var(--muted);margin-bottom:6px;white-space:nowrap}.history-rail{height:116px;display:flex;align-items:end;justify-content:center}.history-bar{width:100%;max-width:42px;background:#c6e2d7;border-radius:5px 5px 1px 1px;min-height:4px}.history-col.current .history-bar{background:var(--accent)}.history-col .history-label{margin-top:7px;color:var(--muted);font-size:.65rem}.settings-card .field{margin-bottom:15px}.bottomnav{position:fixed;bottom:0;left:0;right:0;z-index:20;background:rgba(255,255,255,.97);border-top:1px solid var(--line);padding:8px max(12px,env(safe-area-inset-right)) calc(8px + env(safe-area-inset-bottom)) max(12px,env(safe-area-inset-left));backdrop-filter:blur(15px)}.nav-inner{max-width:680px;margin:auto;display:grid;grid-template-columns:repeat(4,1fr);gap:3px}.navbutton{background:transparent;border:0;border-radius:12px;min-height:54px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:5px;font-size:.68rem;font-weight:750;color:#788692}.navbutton .symbol{font-size:1.3rem;line-height:1}.navbutton.active{background:var(--accent-soft);color:var(--accent)}.view{display:none}.view.active{display:block}.dialog-backdrop{position:fixed;inset:0;z-index:30;background:#15283c88;display:none;align-items:flex-end;justify-content:center;padding:15px}.dialog-backdrop.open{display:flex}.dialog{width:100%;max-width:540px;max-height:90dvh;overflow:auto;background:#fff;border-radius:21px;padding:22px;box-shadow:0 14px 70px #0003}.dialog h2{margin:0 0 8px;font-size:1.25rem}.dialog p{color:var(--muted);font-size:.85rem;line-height:1.5}.toast{position:fixed;z-index:40;left:50%;transform:translateX(-50%);bottom:calc(85px + env(safe-area-inset-bottom));border-radius:12px;padding:12px 17px;background:#132c2c;color:#fff;font-weight:690;font-size:.81rem;opacity:0;pointer-events:none;transition:opacity .15s;text-align:center;max-width:92vw}.toast.show{opacity:1}.hide{display:none!important}input[type=file]{font-size:.75rem}.footertext{text-align:center;font-size:.72rem;line-height:1.5;color:var(--muted);padding:15px 10px}@media(min-width:700px){.shell{padding-top:36px}.bottomnav{width:690px;margin:auto;left:50%;transform:translateX(-50%);border:1px solid var(--line);border-radius:18px 18px 0 0}}@media(max-width:375px){.card{padding:15px}.hero{padding:19px}.grid2{gap:9px}.week-label{min-width:72px;font-size:.76rem}.section-head h2{font-size:1rem}.savings-actions{grid-template-columns:1fr}}
+  .goal-item{padding:17px;margin-bottom:12px}.goal-top{display:flex;align-items:center;justify-content:space-between;gap:10px}.goal-title{font-size:1rem;font-weight:800;overflow-wrap:anywhere}.goal-percent{font-size:.82rem;font-weight:800;color:var(--accent)}.goal-rail{height:12px;background:#e5f0eb;border-radius:99px;overflow:hidden;margin:14px 0 10px}.goal-fill{height:100%;background:linear-gradient(90deg,#0a9a79,#087d65);border-radius:99px;transition:width .3s}.goal-stats{display:flex;justify-content:space-between;gap:8px;font-size:.8rem;color:var(--muted)}.goal-buttons{display:flex;gap:8px;flex-wrap:wrap;margin-top:15px}.goal-buttons button{flex:1}.goal-form{margin-top:12px}.goal-form.hide{display:none}
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <header class="topbar"><div class="brand"><span class="brand-icon" aria-hidden="true">↗</span> Spareblikk</div><span class="topnote">Ditt budsjett. Din kontroll.</span></header>
+
+    <section id="view-overview" class="view active" aria-label="Oversikt">
+      <div class="eyebrow">Din økonomi</div><h1 class="heading">Full kontroll på ukepengene.</h1><p class="subheading">Registrer kjøp og se hvor mye du har igjen av ukebudsjettet.</p>
+      <div class="section-head"><h2>Ukeoversikt</h2><div class="week-nav"><button class="circle" id="prev-week" aria-label="Forrige uke">‹</button><span class="week-label" id="week-label"></span><button class="circle" id="next-week" aria-label="Neste uke">›</button></div></div>
+      <div class="card hero"><div class="eyebrow">Igjen av ukebudsjettet</div><div class="big-number" id="remaining">100 <span class="unit">kr</span></div><div class="subtext" id="week-summary"></div><div class="progress" id="progress"><span id="progress-fill"></span></div><div class="hero-footer"><span id="spent-caption"></span><span id="budget-caption"></span></div></div>
+      <div class="notice" id="carryover-note"></div><div class="grid2"><div class="card metric"><div class="caption">Sparing fra ukelønn</div><div class="value green" id="weekly-save-value"></div><div class="hint">Planlagt hver uke</div></div><div class="card metric"><div class="caption">Spart og registrert totalt</div><div class="value" id="saved-total-short"></div><div class="hint">Dine egne registreringer</div></div></div>
+      <div class="section-head"><h2>Forbruk hver dag</h2><span class="subtle">Mandag–søndag</span></div><div class="card"><div class="daychart" id="daily-chart" aria-label="Forbruk per dag"></div></div>
+      <div class="section-head"><h2>Utgifter denne uken</h2><button class="btn small" id="add-expense">+ Legg til kjøp</button></div><div class="card" id="expense-list"></div>
+    </section>
+
+    <section id="view-history" class="view" aria-label="Historikk">
+      <div class="eyebrow">Se utviklingen</div><h1 class="heading">Forbruk over tid.</h1><p class="subheading">Se hva pengene går til, og hvordan ukene dine ser ut.</p>
+      <div class="section-head"><h2>De siste 8 ukene</h2></div><div class="card"><div class="bar-history" id="history-chart"></div></div>
+      <div class="section-head"><h2>Per kategori</h2><span class="subtle" id="category-period"></span></div><div class="card" id="categories"></div>
+      <div class="section-head"><h2>Alle registrerte kjøp</h2></div><div class="card" id="all-expenses"></div>
+    </section>
+
+    <section id="view-savings" class="view" aria-label="Sparing">
+      <div class="eyebrow">Sparemål</div><h1 class="heading">Bygg opp sparepengene.</h1><p class="subheading">Planen din gir god oversikt. Registrer når du faktisk har satt penger til side.</p>
+      <div class="card"><div class="eyebrow">Sparing du har registrert</div><div class="big-number" id="saved-total" style="font-size:2.8rem;font-weight:850;letter-spacing:-.07em"></div><div class="goal-grid"><div class="goal"><div class="num" id="monthly-plan"></div><div class="cap">Planlagt per måned*</div></div><div class="goal"><div class="num" id="yearly-plan"></div><div class="cap">Planlagt per år</div></div></div><p class="small-note">*Månedstallet er et gjennomsnitt på tvers av året (52 uker fordelt på 12 måneder).</p></div>
+      <div class="section-head"><h2>Registrer sparing</h2></div><div class="savings-actions"><button class="btn" id="save-weekly">+ Ukelønn: <span id="weekly-save-button"></span></button><button class="btn" id="save-monthly">+ Barnetrygd: <span id="monthly-save-button"></span></button></div><p class="small-note" id="save-button-help"></p>
+      <div style="margin-top:12px"><button class="btn secondary full" id="save-leftover">+ Spar penger fra ukebudsjettet</button></div><div style="margin-top:12px"><button class="btn outline full" id="save-custom">+ Registrer et annet sparebeløp</button></div>
+      <div class="section-head"><h2>Dette sparer jeg til</h2></div>
+      <p class="small-note" style="margin:0 0 12px">Lag egne mål og fordel sparepengene dine på dem. Beløpene du legger til her er en fordeling av sparingen din, ikke nye inntekter.</p>
+      <div id="personal-goals"></div>
+      <button class="btn outline full" id="toggle-goal-form" type="button">+ Legg til sparemål</button>
+      <form class="card goal-form hide" id="goal-form"><div class="field"><label for="goal-name">Hva sparer du til?</label><input id="goal-name" maxlength="60" required placeholder="F.eks. førerkort, PC eller ferie"></div><div class="field"><label for="goal-target">Hvor mye trenger du? (kr)</label><input id="goal-target" type="number" inputmode="decimal" min="1" max="1000000000" step="0.01" required placeholder="F.eks. 10000"></div><div class="form-actions"><button type="button" class="btn secondary" id="cancel-goal">Avbryt</button><button class="btn" type="submit">Opprett sparemål</button></div></form>
+      <div class="section-head"><h2>Sparehistorikk</h2></div><div class="card" id="savings-list"></div>
+      <div class="notice">Sparebeløpet her er summen du selv registrerer – appen er ikke koblet til banken din.</div>
+    </section>
+
+    <section id="view-settings" class="view" aria-label="Innstillinger">
+      <div class="eyebrow">Tilpass</div><h1 class="heading">Dine tall.</h1><p class="subheading">Oppdater spareplanen når inntekten eller målene dine endrer seg.</p>
+      <form class="card settings-card" id="settings-form"><div class="field"><label for="weekly-income">Ukelønn (kr)</label><input id="weekly-income" type="number" inputmode="decimal" step="0.01" min="0" required></div><div class="field"><label for="weekly-saving">Sparing fra ukelønn (kr)</label><input id="weekly-saving" type="number" inputmode="decimal" step="0.01" min="0" required></div><div class="field"><label for="monthly-saving">Sparing fra barnetrygd per måned (kr)</label><input id="monthly-saving" type="number" inputmode="decimal" step="0.01" min="0" required></div><div class="field"><label for="starting-saving">Sparepenger du hadde fra før (kr)</label><input id="starting-saving" type="number" inputmode="decimal" step="0.01" min="0" required><span class="small-help">Valgfri startsaldo. Denne er ikke banktilkoblet.</span></div><div class="notice" id="settings-budget-note"></div><button class="btn full" type="submit">Lagre innstillinger</button></form>
+      <div class="section-head"><h2>Sikkerhetskopi</h2></div><div class="card stack"><p class="small-note" style="margin:0">Alle data lagres lokalt i denne nettleseren på telefonen. Lag en sikkerhetskopi av og til, spesielt før du bytter telefon eller nettleser.</p><button class="btn secondary full" id="export-data">↓ Last ned sikkerhetskopi</button><label for="import-data" class="btn outline full" style="cursor:pointer">↑ Gjenopprett fra sikkerhetskopi</label><input id="import-data" type="file" accept=".json,application/json" class="hide" /><button class="btn danger full" id="reset-data">Slett alle registreringer</button></div>
+      <p class="footertext">Spareblikk er gratis, uten konto og uten banktilkobling. Appen fungerer offline etter at den er installert fra en sikker HTTPS-adresse.</p>
+    </section>
+  </main>
+
+  <nav class="bottomnav" aria-label="Hovedmeny"><div class="nav-inner"><button class="navbutton active" data-view="overview"><span class="symbol">◫</span>Oversikt</button><button class="navbutton" data-view="history"><span class="symbol">▥</span>Historikk</button><button class="navbutton" data-view="savings"><span class="symbol">◇</span>Sparing</button><button class="navbutton" data-view="settings"><span class="symbol">⚙</span>Innstillinger</button></div></nav>
+
+  <div class="dialog-backdrop" id="dialog-backdrop" role="presentation"><section class="dialog" role="dialog" aria-modal="true" aria-labelledby="dialog-title"><h2 id="dialog-title"></h2><p id="dialog-description"></p><form id="entry-form"><div class="fields"><div class="field"><label for="entry-amount">Beløp i kroner</label><input id="entry-amount" type="number" inputmode="decimal" step="0.01" min="0.01" required placeholder="f.eks. 49"></div><div class="field"><label for="entry-date">Dato</label><input id="entry-date" type="date" required></div><div class="field full" id="category-field"><label for="entry-category">Kategori</label><select id="entry-category"><option value="Mat og drikke">🥪 Mat og drikke</option><option value="Transport">🚌 Transport</option><option value="Fritid">🎮 Fritid</option><option value="Shopping">🛍️ Shopping</option><option value="Annet">📦 Annet</option></select></div><div class="field full"><label for="entry-note">Beskrivelse (valgfritt)</label><input id="entry-note" type="text" maxlength="80" placeholder="Hva gjaldt det?"></div></div><div class="form-actions"><button class="btn secondary" id="close-dialog" type="button">Avbryt</button><button class="btn" type="submit" id="dialog-submit">Lagre</button></div></form></section></div><div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script>
+  (() => {
+    'use strict';
+    const STORAGE_KEY = 'spareblikk-data-v1';
+    const CATS = {'Mat og drikke':'🥪', 'Transport':'🚌', 'Fritid':'🎮', 'Shopping':'🛍️', 'Annet':'📦'};
+    const fmt = new Intl.NumberFormat('nb-NO', { maximumFractionDigits:2 });
+    const money = n => fmt.format(Math.round((n+Number.EPSILON)*100)/100) + ' kr';
+    const shortMoney = n => fmt.format(n) + ' kr';
+    const $ = id => document.getElementById(id);
+    const todayKey = () => keyOf(new Date());
+    const keyOf = d => `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+    const parseDate = s => new Date(s+'T12:00:00');
+    const addDays = (date,days) => {const d=new Date(date);d.setDate(d.getDate()+days);return d;};
+    const weekStart = d => {const a=new Date(d);a.setHours(12,0,0,0);a.setDate(a.getDate()-((a.getDay()+6)%7));return a;};
+    const weekOf = s => keyOf(weekStart(parseDate(s)));
+    const dateLabel = s => new Intl.DateTimeFormat('nb-NO',{day:'numeric',month:'short'}).format(parseDate(s));
+    const escapeText = s => String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+    const initial = () => ({settings:{weeklyIncome:350,weeklySaving:250,monthlySaving:1500,startingSaving:0},expenses:[],savings:[],goals:[],rolloverStart:weekOf(todayKey())});
+    const validAmount = n => Number.isFinite(n) && n>=0 && n<=1e9;
+    const validDate = s => typeof s==='string' && /^\d{4}-\d{2}-\d{2}$/.test(s) && !Number.isNaN(parseDate(s).getTime()) && keyOf(parseDate(s))===s;
+    const sanitizeEntry = (raw,saving=false) => ({id:typeof raw.id==='string'?raw.id:String(Date.now()),amount:Number(raw.amount),date:raw.date,note:typeof raw.note==='string'?raw.note.slice(0,80):'',...(saving?{source:['week','month','other','leftover'].includes(raw.source)?raw.source:'other'}:{category:CATS[raw.category]?raw.category:'Annet'})});
+    const sanitize = obj => {
+      if(!obj || typeof obj!=='object'|| !obj.settings || !Array.isArray(obj.expenses) || !Array.isArray(obj.savings))throw Error('Ugyldig filformat');
+      const s = {}; for(const f of ['weeklyIncome','weeklySaving','monthlySaving','startingSaving']){const n=Number(obj.settings[f]);if(!validAmount(n))throw Error('Ugyldig beløp i innstillinger');s[f]=n;}
+      if(s.weeklySaving>s.weeklyIncome)throw Error('Sparing kan ikke være større enn ukelønn');
+      if(obj.expenses.length+obj.savings.length>30000)throw Error('Filen inneholder for mange registreringer');
+      const build=(items,isSaving)=>items.map(x=>{const a=sanitizeEntry(x,isSaving);if(!validAmount(a.amount)||a.amount<=0||!validDate(a.date))throw Error('Ugyldig registrering');return a;});
+      const goals=(Array.isArray(obj.goals)?obj.goals:[]).map(g=>{const target=Number(g.target),amount=Number(g.amount);if(!validAmount(target)||target<=0||!validAmount(amount)||amount>target||typeof g.name!=='string'||!g.name.trim())throw Error('Ugyldig sparemål');return {id:typeof g.id==='string'?g.id:String(Date.now()),name:g.name.slice(0,60),target,amount};});if(goals.length>500)throw Error('For mange sparemål');return {settings:s,expenses:build(obj.expenses,false),savings:build(obj.savings,true),goals,rolloverStart:validDate(obj.rolloverStart)?weekOf(obj.rolloverStart):weekOf(todayKey())};
+    };
+    let state; let selectedWeek = weekStart(new Date());let dialogMode='expense';let editingId=null;let activeView='overview';let toastTimer;
+    try{state=sanitize(JSON.parse(localStorage.getItem(STORAGE_KEY)));}catch(e){state=initial();}
+    function persist(){try{localStorage.setItem(STORAGE_KEY,JSON.stringify(state));}catch(e){showToast('Lagring feilet. Ta sikkerhetskopi av registreringene dine.');}}
+    function showToast(message){$('toast').textContent=message;$('toast').classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>$('toast').classList.remove('show'),3300);}
+    function budget(){return Math.max(0,state.settings.weeklyIncome-state.settings.weeklySaving);}
+    function sum(items){return items.reduce((a,x)=>a+x.amount,0);}
+    function weekItems(date){const w=keyOf(weekStart(date));return state.expenses.filter(x=>weekOf(x.date)===w);}
+    // Uke for uke: over- og underskudd videreføres. Bare ekstra sparing fra
+    // ukebudsjettet trekkes her; fast ukesparing er allerede trukket fra basis.
+    function weekBalance(date){
+      const target=weekOf(keyOf(date)),start=state.rolloverStart;
+      const base=budget();
+      if(target<start)return {opening:0,base,spent:sum(weekItems(date)),transferred:0,available:base-sum(weekItems(date)),beforeStart:true};
+      let opening=0, cursor=parseDate(start);
+      const steps=Math.round((weekStart(date)-cursor)/604800000);
+      // Øvre grense hindrer at feil dato låser appen.
+      if(steps>2600)return {opening:0,base,spent:0,transferred:0,available:base,beforeStart:false};
+      for(let i=0;i<=steps;i++){
+        const w=keyOf(cursor);
+        const spent=sum(state.expenses.filter(x=>weekOf(x.date)===w));
+        const transferred=sum(state.savings.filter(x=>x.source==='leftover'&&weekOf(x.date)===w));
+        const available=Math.round((opening+base-spent-transferred)*100)/100;
+        if(i===steps)return {opening,base,spent,transferred,available,beforeStart:false};
+        opening=available;
+        cursor=addDays(cursor,7);
+      }
+    }
+    function saved(){return state.settings.startingSaving+sum(state.savings);}
+    function yearly(){return state.settings.monthlySaving*12+state.settings.weeklySaving*52;}
+    function showView(name){activeView=name;document.querySelectorAll('.view').forEach(v=>v.classList.toggle('active',v.id==='view-'+name));document.querySelectorAll('.navbutton').forEach(b=>{const active=b.dataset.view===name;b.classList.toggle('active',active);b.setAttribute('aria-current',active?'page':'false');});render();scrollTo({top:0,behavior:'instant'});}
+    function render(){renderOverview();renderHistory();renderSavings();renderGoals();renderSettings();}
+    function renderOverview(){
+      const week = keyOf(selectedWeek),thisWeek=keyOf(weekStart(new Date()));const isThis=week===thisWeek;
+      $('week-label').textContent=`${dateLabel(week)}–${dateLabel(keyOf(addDays(selectedWeek,6)))}`;
+      const ex=weekItems(selectedWeek),bal=weekBalance(selectedWeek),spent=bal.spent,b=bal.base+bal.opening,rem=bal.available;
+      $('remaining').innerHTML=`${escapeText(fmt.format(Math.abs(rem)))} <span class="unit">kr</span>`;
+      $('remaining').style.color=rem<0?'#ffddc0':'#fff';
+      $('week-summary').textContent=rem<0?`Du er ${money(-rem)} over ukebudsjettet`:(isThis?'Dette har du igjen å bruke denne uken':'Dette var igjen av budsjettet denne uken');
+      $('spent-caption').textContent=`Brukt: ${money(spent)}${bal.transferred?' · Ekstra spart: '+money(bal.transferred):''}`;$('budget-caption').textContent=`Tilgjengelig: ${money(b)}`;
+      $('carryover-note').textContent=bal.beforeStart?'Overføring mellom uker starter fra uken du oppdaterte appen. Eldre uker vises uten overføring.':`Fra forrige uke: ${bal.opening>=0?'+':''}${money(bal.opening)} · Ukens nye budsjett: ${money(bal.base)}${bal.transferred?' · Flyttet til sparing: −'+money(bal.transferred):''}. ${bal.available<0?'Underskuddet trekkes fra neste uke.':'Restbeløpet overføres til neste uke.'}`;
+      $('progress-fill').style.width=`${b>0?Math.max(0,Math.min(spent/b*100,100)):(spent>0?100:0)}%`;$('progress').classList.toggle('over',rem<0);
+      $('weekly-save-value').textContent=shortMoney(state.settings.weeklySaving);$('saved-total-short').textContent=shortMoney(saved());
+      const days=Array.from({length:7},(_,i)=>keyOf(addDays(selectedWeek,i)));
+      const sums=days.map(day=>sum(ex.filter(x=>x.date===day)));const max=Math.max(...sums,1);
+      $('daily-chart').innerHTML=days.map((day,i)=>`<div class="day ${day===todayKey()?'today':''}" title="${escapeText(dateLabel(day))}: ${money(sums[i])}"><span class="day-val">${sums[i]?fmt.format(sums[i]):'·'}</span><div class="bar-space"><div class="bar" style="height:${Math.max(4,sums[i]/max*94)}px"></div></div><span class="day-name">${['M','Ti','O','To','F','L','S'][i]}</span></div>`).join('');
+      $('expense-list').innerHTML=ex.length?ex.slice().sort((a,b)=>b.date.localeCompare(a.date)).map(x=>expenseHTML(x)).join(''):'<p class="empty">Ingen kjøp registrert denne uken. Trykk «Legg til kjøp» når du har brukt penger.</p>';
+    }
+    function expenseHTML(x){return `<div class="tx"><div class="left"><span class="emoji">${CATS[x.category]||'📦'}</span><div class="txt"><strong>${escapeText(x.note||x.category)}</strong><div class="meta">${escapeText(dateLabel(x.date))} · ${escapeText(x.category)}</div></div></div><div class="right"><span class="amount">−${money(x.amount)}</span><button class="mini" data-edit-expense="${escapeText(x.id)}" aria-label="Rediger kjøp">✎</button><button class="mini" data-delete-expense="${escapeText(x.id)}" aria-label="Slett kjøp">×</button></div></div>`;}
+    function renderHistory(){
+      const start=weekStart(new Date()),arr=Array.from({length:8},(_,i)=>addDays(start,(i-7)*7));const vals=arr.map(d=>sum(weekItems(d)));const max=Math.max(...vals,budget(),1);
+      $('history-chart').innerHTML=arr.map((d,i)=>`<div class="history-col ${i===7?'current':''}"><div class="history-val">${vals[i]?fmt.format(vals[i]):'0'}</div><div class="history-rail"><div class="history-bar" style="height:${Math.max(4,vals[i]/max*116)}px"></div></div><div class="history-label">U${isoWeek(d)}</div></div>`).join('');
+      const w=weekItems(selectedWeek);$('category-period').textContent=`${dateLabel(keyOf(selectedWeek))}–${dateLabel(keyOf(addDays(selectedWeek,6)))}`;
+      const byCategory=Object.keys(CATS).map(c=>({cat:c,amount:sum(w.filter(x=>x.category===c))})).filter(x=>x.amount>0).sort((a,b)=>b.amount-a.amount);
+      $('categories').innerHTML=byCategory.length?byCategory.map(x=>`<div class="category-row"><div class="cat-left"><span class="emoji">${CATS[x.cat]}</span><span class="cat-name">${escapeText(x.cat)}</span></div><span class="cat-amount">${money(x.amount)}</span></div>`).join(''):'<p class="empty">Ingen utgifter registrert i valgt uke. Bytt uke i Oversikt-fanen.</p>';
+      $('all-expenses').innerHTML=state.expenses.length?state.expenses.slice().sort((a,b)=>b.date.localeCompare(a.date)).map(expenseHTML).join(''):'<p class="empty">Her vises alle kjøp etter hvert som du registrerer dem.</p>';
+    }
+    function isoWeek(d){const date=new Date(Date.UTC(d.getFullYear(),d.getMonth(),d.getDate()));date.setUTCDate(date.getUTCDate()+4-(date.getUTCDay()||7));const first=new Date(Date.UTC(date.getUTCFullYear(),0,1));return Math.ceil((((date-first)/86400000)+1)/7);}
+    function renderSavings(){
+      $('saved-total').textContent=money(saved());$('monthly-plan').textContent=shortMoney(Math.round(yearly()/12));$('yearly-plan').textContent=shortMoney(yearly());
+      $('weekly-save-button').textContent=shortMoney(state.settings.weeklySaving);$('monthly-save-button').textContent=shortMoney(state.settings.monthlySaving);
+      const week=weekOf(todayKey()),month=todayKey().slice(0,7),alreadyW=state.savings.some(s=>s.source==='week'&&weekOf(s.date)===week),alreadyM=state.savings.some(s=>s.source==='month'&&s.date.startsWith(month));
+      $('save-weekly').disabled=alreadyW||state.settings.weeklySaving<=0;$('save-monthly').disabled=alreadyM||state.settings.monthlySaving<=0;
+      $('save-button-help').textContent=`${alreadyW?'✓ Ukelønnens sparing registrert denne uken. ':'Trykk når du faktisk har satt av ukens sparebeløp. '}${alreadyM?'✓ Barnetrygdens sparing registrert denne måneden.':'Registrer barnetrygden når pengene er satt av.'}`;
+      $('savings-list').innerHTML=state.savings.length?state.savings.slice().sort((a,b)=>b.date.localeCompare(a.date)).map(x=>`<div class="tx"><div class="left"><span class="emoji">💚</span><div class="txt"><strong>${escapeText(x.note|| (x.source==='week'?'Fra ukelønn':x.source==='month'?'Fra barnetrygd':x.source==='leftover'?'Fra ukebudsjettet':'Annen sparing'))}</strong><div class="meta">${dateLabel(x.date)}</div></div></div><div class="right"><span class="amount green">+${money(x.amount)}</span><button class="mini" data-edit-saving="${escapeText(x.id)}" aria-label="Rediger sparing">✎</button><button class="mini" data-delete-saving="${escapeText(x.id)}" aria-label="Slett sparing">×</button></div></div>`).join(''):'<p class="empty">Når du har flyttet penger til sparing, registrerer du beløpet her.</p>';
+    }
+    function renderGoals(){
+      const allocated=state.goals.reduce((n,g)=>n+g.amount,0),available=Math.max(0,saved()-allocated);
+      $('personal-goals').innerHTML=state.goals.length?state.goals.map(g=>{const pct=Math.min(100,g.amount/g.target*100);return `<div class="card goal-item"><div class="goal-top"><span class="goal-title">🎯 ${escapeText(g.name)}</span><span class="goal-percent">${fmt.format(Math.round(pct))} %</span></div><div class="goal-rail" role="progressbar" aria-label="${escapeText(g.name)}" aria-valuenow="${Math.round(pct)}" aria-valuemin="0" aria-valuemax="100"><div class="goal-fill" style="width:${pct}%"></div></div><div class="goal-stats"><span>${money(g.amount)} spart</span><span>Mål: ${money(g.target)}</span></div><div class="goal-stats" style="margin-top:6px"><span>${pct>=100?'🎉 Målet er nådd!':money(g.target-g.amount)+' igjen'}</span></div><div class="goal-buttons"><button class="btn small" data-add-goal="${escapeText(g.id)}">+ Fordel sparing</button><button class="btn secondary small" data-edit-goal="${escapeText(g.id)}">Rediger</button><button class="btn danger small" data-delete-goal="${escapeText(g.id)}" aria-label="Slett sparemål">Slett</button></div></div>`;}).join(''):'<div class="card empty">Du har ingen sparemål ennå. Legg til noe du ønsker å spare til!</div>';
+      if(state.goals.length)$('personal-goals').insertAdjacentHTML('beforeend',`<p class="small-note" style="margin-bottom:14px">Ikke fordelt sparing: <strong>${money(available)}</strong>. Fordelt på mål: ${money(allocated)}.</p>`);
+    }
+    function renderSettings(){const s=state.settings;for(const [id,v] of Object.entries({'weekly-income':s.weeklyIncome,'weekly-saving':s.weeklySaving,'monthly-saving':s.monthlySaving,'starting-saving':s.startingSaving}))if(document.activeElement!==$(id))$(id).value=v;
+      $('settings-budget-note').textContent=`Du har ${money(budget())} igjen av ukelønnen hver uke etter planlagt sparing. Eventuelle andre penger til forbruk er ikke regnet med.`;
+    }
+    function openDialog(mode,id=null){dialogMode=mode;editingId=id;const saving=mode==='saving';const list=saving?state.savings:state.expenses;const x=id?list.find(item=>item.id===id):null;
+      $('dialog-title').textContent=id?(saving?'Rediger sparing':'Rediger kjøp'):(saving?'Registrer sparing':'Legg til kjøp');$('dialog-description').textContent=saving?'Før bare opp penger du faktisk har satt til side.':'Skriv inn beløp og hva du har brukt pengene på.';
+      $('category-field').classList.toggle('hide',saving);$('entry-amount').value=x?x.amount:'';$('entry-date').value=x?x.date:todayKey();$('entry-category').value=x?.category||'Mat og drikke';$('entry-note').value=x?.note||'';
+      $('dialog-backdrop').classList.add('open');$('entry-amount').focus();
+    }
+    function closeDialog(){$('dialog-backdrop').classList.remove('open');editingId=null;}
+    function generateId(){return typeof crypto!=='undefined'&&crypto.randomUUID?crypto.randomUUID():String(Date.now())+'-'+Math.random().toString(36).slice(2);}
+    function addSavings(amount,source){if(!(amount>0))return;state.savings.push({id:generateId(),amount,date:todayKey(),note:'',source});persist();render();showToast(`${money(amount)} registrert som spart`);}
+    function changeWeek(delta){selectedWeek=addDays(selectedWeek,7*delta);renderOverview();renderHistory();}
+    document.querySelectorAll('.navbutton').forEach(b=>b.addEventListener('click',()=>showView(b.dataset.view)));
+    $('prev-week').addEventListener('click',()=>changeWeek(-1));$('next-week').addEventListener('click',()=>changeWeek(1));
+    $('add-expense').addEventListener('click',()=>openDialog('expense'));
+    $('save-custom').addEventListener('click',()=>openDialog('saving'));
+    $('save-leftover').addEventListener('click',()=>{
+      const bal=weekBalance(weekStart(new Date()));
+      const max=Math.max(0,bal.available);
+      if(max<=0){showToast('Ingen penger til overs i ukebudsjettet.');return;}
+      const raw=prompt(`Hvor mye av pengene du kan bruke vil du spare? (Tilgjengelig: ${money(max)})`,String(Math.min(max,100)));
+      if(raw===null)return;
+      const amount=Number(raw.replace(',','.'));
+      if(!validAmount(amount)||amount<=0||amount>max){showToast('Velg et beløp innenfor det du har igjen.');return;}
+      state.savings.push({id:generateId(),amount,date:todayKey(),note:'Fra ukebudsjettet',source:'leftover'});
+      persist();render();showToast(`${money(amount)} flyttet fra ukebudsjett til sparing`);
+    });
+    $('close-dialog').addEventListener('click',closeDialog);
+    $('dialog-backdrop').addEventListener('click',e=>{if(e.target===$('dialog-backdrop'))closeDialog();});
+    document.addEventListener('keydown',e=>{if(e.key==='Escape')closeDialog();});
+    $('entry-form').addEventListener('submit',e=>{
+      e.preventDefault();const amount=Number($('entry-amount').value),date=$('entry-date').value;
+      if(!validAmount(amount)||amount<=0||!validDate(date)){showToast('Sjekk beløp og dato.');return;}
+      const isSaving=dialogMode==='saving';const list=isSaving?state.savings:state.expenses;const old=editingId?list.find(x=>x.id===editingId):null;
+      const item={id:old?.id||generateId(),amount,date,note:$('entry-note').value.trim().slice(0,80),...(isSaving?{source:old?.source||'other'}:{category:CATS[$('entry-category').value]?$('entry-category').value:'Annet'})};
+      if(old)Object.assign(old,item);else list.push(item);
+      if(!isSaving)selectedWeek=weekStart(parseDate(date));persist();render();closeDialog();showToast(old?'Registreringen er oppdatert':'Registreringen er lagret');
+    });
+    document.addEventListener('click',e=>{
+      const btn=e.target.closest('button');if(!btn)return;
+      const ea=btn.dataset.editExpense,da=btn.dataset.deleteExpense,es=btn.dataset.editSaving,ds=btn.dataset.deleteSaving;
+      if(ea)openDialog('expense',ea);if(es)openDialog('saving',es);
+      if(da&&confirm('Vil du slette dette kjøpet?')){state.expenses=state.expenses.filter(x=>x.id!==da);persist();render();showToast('Kjøpet er slettet');}
+      if(ds&&confirm('Vil du slette denne spareføringen?')){state.savings=state.savings.filter(x=>x.id!==ds);persist();render();showToast('Spareføringen er slettet');}
+    });
+    $('toggle-goal-form').addEventListener('click',()=>{$('goal-form').classList.remove('hide');$('goal-name').focus();});
+    $('cancel-goal').addEventListener('click',()=>{$('goal-form').reset();$('goal-form').classList.add('hide');});
+    $('goal-form').addEventListener('submit',e=>{e.preventDefault();const name=$('goal-name').value.trim(),target=Number($('goal-target').value);if(!name||!validAmount(target)||target<=0)return;state.goals.push({id:generateId(),name:name.slice(0,60),target,amount:0});persist();render();$('goal-form').reset();$('goal-form').classList.add('hide');showToast('Sparemålet er opprettet');});
+    document.addEventListener('click',e=>{const btn=e.target.closest('button');if(!btn)return;const id=btn.dataset.addGoal||btn.dataset.editGoal||btn.dataset.deleteGoal;if(!id)return;const g=state.goals.find(x=>x.id===id);if(!g)return;
+      if(btn.dataset.deleteGoal){if(confirm('Slette sparemålet? Sparepengene dine blir ikke slettet.')){state.goals=state.goals.filter(x=>x.id!==id);persist();render();}return;}
+      if(btn.dataset.editGoal){const name=prompt('Navn på sparemålet:',g.name);if(name===null)return;const targetRaw=prompt('Nytt målbeløp (kr):',String(g.target));if(targetRaw===null)return;const target=Number(targetRaw.replace(',','.'));if(!name.trim()||!validAmount(target)||target<=0||target<g.amount){showToast('Målbeløpet må være minst det du har fordelt.');return;}g.name=name.trim().slice(0,60);g.target=target;persist();render();return;}
+      const allocated=state.goals.reduce((n,x)=>n+x.amount,0),available=Math.max(0,saved()-allocated),remaining=g.target-g.amount;if(available<=0||remaining<=0){showToast(remaining<=0?'Målet er allerede nådd':'Registrer sparing først, så kan du fordele den.');return;}
+      const raw=prompt(`Hvor mye vil du fordele til ${g.name}? (Tilgjengelig: ${money(available)})`,String(Math.min(available,remaining)));if(raw===null)return;const amount=Number(raw.replace(',','.'));if(!validAmount(amount)||amount<=0||amount>available+0.001||amount>remaining+0.001){showToast('Beløpet må være innenfor tilgjengelig sparing og målbeløpet.');return;}g.amount=Math.round((g.amount+amount)*100)/100;persist();render();showToast('Sparemålet er oppdatert');
+    });
+    $('save-weekly').addEventListener('click',()=>{const w=weekOf(todayKey());if(!state.savings.some(s=>s.source==='week'&&weekOf(s.date)===w))addSavings(state.settings.weeklySaving,'week');});
+    $('save-monthly').addEventListener('click',()=>{const m=todayKey().slice(0,7);if(!state.savings.some(s=>s.source==='month'&&s.date.startsWith(m)))addSavings(state.settings.monthlySaving,'month');});
+    $('settings-form').addEventListener('submit',e=>{e.preventDefault();const s={weeklyIncome:Number($('weekly-income').value),weeklySaving:Number($('weekly-saving').value),monthlySaving:Number($('monthly-saving').value),startingSaving:Number($('starting-saving').value)};if(!Object.values(s).every(validAmount)||s.weeklySaving>s.weeklyIncome){showToast('Sparingen kan ikke overstige ukelønnen.');return;}state.settings=s;persist();render();showToast('Spareplanen er oppdatert');});
+    $('export-data').addEventListener('click',()=>{const blob=new Blob([JSON.stringify({...state,exportedAt:new Date().toISOString()},null,2)],{type:'application/json'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=`spareblikk-sikkerhetskopi-${todayKey()}.json`;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);showToast('Sikkerhetskopi lastet ned');});
+    $('import-data').addEventListener('change',async e=>{const f=e.target.files?.[0];if(!f)return;try{if(f.size>5e6)throw Error('Filen er for stor');const obj=sanitize(JSON.parse(await f.text()));if(confirm('Dette erstatter ALLE nåværende registreringer og innstillinger. Fortsette?')){state=obj;persist();render();showToast('Sikkerhetskopien er gjenopprettet');}}catch(err){showToast('Kunne ikke lese sikkerhetskopien: '+err.message);}finally{e.target.value='';}});
+    $('reset-data').addEventListener('click',()=>{if(confirm('Vil du virkelig slette ALLE registreringer, spareføringer og innstillinger? Dette kan ikke angres uten sikkerhetskopi.')){state=initial();persist();selectedWeek=weekStart(new Date());render();showToast('Alle registreringer er slettet');}});
+    if('serviceWorker' in navigator && (location.protocol==='https:'||location.hostname==='localhost'))navigator.serviceWorker.register('./sw.js').catch(()=>{});
+    render();
+  })();
+  </script>
+</body>
+</html>
